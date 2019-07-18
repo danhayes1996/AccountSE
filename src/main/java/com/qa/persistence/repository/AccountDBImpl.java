@@ -20,7 +20,7 @@ public class AccountDBImpl implements AccountRepository {
 	private EntityManager manager;
 	@Inject
 	private JSONUtil json;
-	
+	 
 	@Override
 	public String getAllAccounts() {
 		TypedQuery<Account> query = manager.createQuery("SELECT a FROM Account a", Account.class);
@@ -57,6 +57,7 @@ public class AccountDBImpl implements AccountRepository {
 		updateTo.setAccountNumber(updateFrom.getAccountNumber());
 		updateTo.setFirstName(updateFrom.getFirstName());
 		updateTo.setLastName(updateFrom.getLastName());
+		manager.persist(updateTo);
 		return SUCCESS;
 	}
 }

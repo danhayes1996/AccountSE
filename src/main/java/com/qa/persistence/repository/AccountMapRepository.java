@@ -1,5 +1,6 @@
 package com.qa.persistence.repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,8 +16,7 @@ public class AccountMapRepository implements AccountRepository{
 
 	private int idCount = 0;
 	
-	@Inject
-	Map<Integer, Account> accountMap;
+	Map<Integer, Account> accountMap = new HashMap<>();
 	@Inject
 	private JSONUtil json;
 	
